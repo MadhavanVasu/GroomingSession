@@ -56,6 +56,8 @@ public class Polymorphism {
         SimpleCalculator calc2 = new Calculator();
         System.out.println(calc2.add(new int[]{1, 2, 3, 4}));
 
+
+
     }
 
 
