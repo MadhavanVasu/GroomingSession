@@ -10,7 +10,14 @@ class Human {
     int age;
     static int population;
 
+    static {
+        population = 0;
+        System.out.println("In static block");
+    }
+
     public Human(String name, int age) {
+
+        System.out.println("In constructor");
         this.name = name;
         this.age = age;
 
