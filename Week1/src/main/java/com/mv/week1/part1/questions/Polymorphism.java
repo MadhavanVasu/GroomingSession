@@ -18,6 +18,7 @@ class SimpleCalculator {
         int n = nums.length;
         int sum = 0;
 
+        // Simple for loop
         for (int i = 0; i < n; i++)
             sum += nums[i];
         return sum;
@@ -34,6 +35,8 @@ class Calculator extends SimpleCalculator {
     @Override
     public int add(int[] nums) {
         int sum = 0;
+
+        // for each loop
         for (int x : nums)
             sum += x;
         return sum;
