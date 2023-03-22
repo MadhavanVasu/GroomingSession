@@ -62,7 +62,7 @@ public class AccessModifier {
         // obj.c = 5;
 
         // Can access default members within the package
-        // Cannot be access anywhere outside the package
+        // Cannot be accessed anywhere outside the package
         obj.d = 10;
         System.out.println(obj.getD());
 
