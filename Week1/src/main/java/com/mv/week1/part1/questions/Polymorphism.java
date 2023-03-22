@@ -1,4 +1,4 @@
-package com.mv.week1.questions;
+package com.mv.week1.part1.questions;
 
 class SimpleCalculator {
 
