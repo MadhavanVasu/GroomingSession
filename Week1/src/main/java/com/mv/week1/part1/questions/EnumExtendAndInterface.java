@@ -38,6 +38,10 @@ public class EnumExtendAndInterface {
         // ordinal() method returns the position of the enum constant
         for (OrderStatus status : OrderStatus.values())
             System.out.println(status + " " + status.ordinal());
+//        DISPATCHED 0
+//        SHIPPED 1
+//        OUT_FOR_DELIVERY 2
+//        DELIVERED 3
     }
 
 }
