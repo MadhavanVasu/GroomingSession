@@ -1,5 +1,8 @@
 package com.mv.week1.part1.questions;
 
+
+// Outer class can have only public and default access modifier for class
+// Inner class can have any of the access modifier
 public class InheritanceA {
 
     private void displayPrivateMethod() {

@@ -1,6 +1,10 @@
 package com.mv.week1.part1.questions;
 
+import java.util.Map;
+
 class Child1 extends InheritanceA {
+
+
 
 }
 
@@ -15,6 +19,7 @@ public class InheritanceB {
         child.displayDefaultMethod();
         child.displayPublicMethod();
         child.displayProtectedMethod();
+
 
 
     }
