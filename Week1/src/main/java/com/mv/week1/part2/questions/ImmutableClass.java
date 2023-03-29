@@ -55,7 +55,7 @@ public class ImmutableClass {
         System.out.println(studentList);
 
         // Throws UnsupportedOperationException as immutable objects cannot be modified
-        obj.getList().remove(0);
+        //obj.getList().remove(0);
 
     }
 
