@@ -19,6 +19,7 @@ class Person implements Comparable<Person> {
         else if(age<obj.age)
             return -1;
         return 0;
+
     }
 
 }
@@ -40,7 +41,7 @@ public class CompareToAndCompare {
         System.out.println("Comparing p1 to p2: " + p1.compareTo(p2)); // Output: -1
         System.out.println("Comparing p1 to p3: " + p1.compareTo(p3)); // Output: 1
         System.out.println("Comparing p2 to p3: " + p2.compareTo(p3)); // Output: 1
-        
+
         // compare() method -> Comparator interface
         System.out.println("Comparing p1 to p2 using NameComparator: " + nameComparator.compare(p1, p2)); // Output: -13
         System.out.println("Comparing p1 to p3 using NameComparator: " + nameComparator.compare(p1, p3)); // Output: 7
