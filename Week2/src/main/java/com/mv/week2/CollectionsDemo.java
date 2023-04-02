@@ -29,6 +29,7 @@ public class CollectionsDemo {
 
         // Default capacity is 10
         ArrayList<Integer> aList;
+//        HashMap
 
 
 

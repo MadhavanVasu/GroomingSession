@@ -4,12 +4,18 @@ package com.mv.week1.part1;
 
 enum Days {
 
+    // Enum constants are public static final constants
     MONDAY {
 
         public int var = 10;
 
         public int dummy() {
-            return 1;
+            var = 5;
+            return var;
+        }
+
+        public void setVar(int v) {
+            var = v;
         }
     },
     TUESDAY(2),
@@ -19,7 +25,7 @@ enum Days {
     SATURDAY(6),
     SUNDAY(7);
 
-    private int dayOfTheWeek;
+    int dayOfTheWeek;
 
     static {
         System.out.println("In static block");
@@ -29,6 +35,7 @@ enum Days {
     private Days(int x) {
         System.out.println("In parameterized constructor " + x);
         this.dayOfTheWeek = x;
+
     }
 
     Days() {
@@ -44,6 +51,11 @@ enum Days {
 
 
 public class EnumPrac {
+    static Days days;
+
+    public EnumPrac(String s) {
+        System.out.println("hi from Enum");
+    }
 
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("com.mv.week1.part1.Days");
@@ -67,10 +79,14 @@ public class EnumPrac {
         for (Days x : Days.values()) {
             System.out.println(x);
         }
-
+        int a = Days.TUESDAY.dayOfTheWeek;
+        Days[] daysArr = Days.values();
+        System.out.println(daysArr[2]);
+        System.out.println(days.MONDAY.dayOfTheWeek);
         System.out.println(day.getDayOfTheWeek());
 
 
     }
 
 }
+
