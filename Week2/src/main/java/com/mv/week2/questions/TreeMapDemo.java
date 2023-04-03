@@ -48,9 +48,9 @@ class Student implements Comparable {
     public int compareTo(Object o) {
         Student obj = (Student) o;
         if (obj.getSid() > getSid())
-            return -1;
-        else if (obj.getSid() < getSid())
             return 1;
+        else if (obj.getSid() < getSid())
+            return -1;
         return 0;
     }
 }
@@ -81,6 +81,7 @@ public class TreeMapDemo {
         Map<Student, Integer> studentMap2 = new TreeMap<>(studentComparator2);
         // Construction of sorted collection with non-comparable elements
         // Because user-defined data types like class have no natural ordering
+
         // So should either implement Comparable interface or pass object of type Comparator to TreeMap constructor.
         Map<Student, Integer> studentMap3 = new TreeMap<>();
 
@@ -104,10 +105,14 @@ public class TreeMapDemo {
         studentMap3.put(s3, 85);
         studentMap3.put(s4, 70);
 
+        System.out.println("\nObjects sorted based on student id :");
         System.out.println(studentMap1);
+        System.out.println("\nObjects sorted based on student name :");
         System.out.println(studentMap2);
+        System.out.println("\nObjects sorted in descending order :");
         System.out.println(studentMap3);
 
+        System.out.println("\nTreeMap sorted in descending order using Collections.reverseOrder() :");
         Map<Integer, Integer> descMap = new TreeMap<>(Collections.reverseOrder());
         descMap.put(1, 10);
         descMap.put(2, 5);
