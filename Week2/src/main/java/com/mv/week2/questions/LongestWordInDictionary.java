@@ -7,6 +7,7 @@ import java.util.Set;
 public class LongestWordInDictionary {
 
     // Without using Trie data structure
+    // O(n*m)
     public String longestWordWithoutTrie(String[] words) {
         Arrays.sort(words);
         Set<String> set = new HashSet<>();

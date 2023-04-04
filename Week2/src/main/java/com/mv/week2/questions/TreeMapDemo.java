@@ -1,9 +1,6 @@
 package com.mv.week2.questions;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 // Write a program to sort the objects in desc order using TreeMap
 
@@ -79,9 +76,9 @@ public class TreeMapDemo {
         Comparator<Student> studentComparator2 = Comparator.comparing(Student::getName);
         Map<Student, Integer> studentMap1 = new TreeMap<>(studentComparator1);
         Map<Student, Integer> studentMap2 = new TreeMap<>(studentComparator2);
+
         // Construction of sorted collection with non-comparable elements
         // Because user-defined data types like class have no natural ordering
-
         // So should either implement Comparable interface or pass object of type Comparator to TreeMap constructor.
         Map<Student, Integer> studentMap3 = new TreeMap<>();
 
@@ -120,6 +117,15 @@ public class TreeMapDemo {
         descMap.put(4, 1);
         // Sorting the map in reverse order using Collections.reverseOrder()
         System.out.println(descMap);
+
+        // keySet() and entrySet()
+        // keySet() -> returns a set of keys in the map
+        Set<Student> studentKeySet = studentMap1.keySet();
+
+        // Returns a set of Entry
+        // Entry is a key-value pair
+        Set<Map.Entry<Student, Integer>> entrySet = studentMap1.entrySet();
+
     }
 
 }
