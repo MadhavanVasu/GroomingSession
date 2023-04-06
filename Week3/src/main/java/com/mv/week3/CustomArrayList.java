@@ -35,9 +35,11 @@ class MyArrayList<T> {
             increaseCapacity();
         }
         arr[size++] = x;
+        System.out.println(Arrays.toString(arr));
     }
 
     public T get(int i) {
+        if (i < 0 || i >= size) throw new IndexOutOfBoundsException();
         return (T) arr[i];
     }
 
@@ -50,22 +52,24 @@ class MyArrayList<T> {
     public void add(int i, T element) {
         if (size == capacity)
             increaseCapacity();
-
-        int j = i;
-        Object temp = arr[j];
-        while (j < size) {
-            arr[j + 1] = arr[j];
-
+        Object temp = arr[i];
+        arr[i] = element;
+        int j = i + 1;
+        while (j <= size) {
+            Object t = arr[j];
+            arr[j++] = temp;
+            temp = t;
         }
     }
 
-    public void remove(int i) {
-
-    }
-
+//    public void remove(int i) {
+//        if(i==)
+//        while (i < size){
+//        }
+//
+//    }
 
 }
-
 
 public class CustomArrayList {
 
@@ -75,6 +79,7 @@ public class CustomArrayList {
             arrayList.add(i);
         System.out.println(arrayList.getCapacity());
         System.out.println(arrayList.getSize());
+        arrayList.add(2, 15);
         arrayList.clear();
 
     }
