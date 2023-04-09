@@ -40,11 +40,11 @@ class Task implements Runnable {
 
     @Override
     public void run() {
-        try {
-            display();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            display();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         System.out.println("Inside run " + Thread.currentThread().getName());
         display2();
 
