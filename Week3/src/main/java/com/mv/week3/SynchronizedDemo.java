@@ -7,6 +7,7 @@ class ExampleClass {
     public synchronized void increment() {
         count++;
         System.out.println(Thread.currentThread().getName() + " incremented count to " + count);
+
     }
 
     public void printCount() {
@@ -22,7 +23,7 @@ public class SynchronizedDemo {
             for (int i = 0; i < 5; i++) {
                 example.increment();
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -33,7 +34,7 @@ public class SynchronizedDemo {
             for (int i = 0; i < 5; i++) {
                 example.printCount();
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
