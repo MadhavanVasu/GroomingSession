@@ -18,6 +18,7 @@ public class FutureArrayList {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
+        // Fixed Thread Pool
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(5);
         List<Future<String>> list = new ArrayList<>();
 //        List<FutureTask> list2 = new ArrayList<>();
@@ -27,6 +28,8 @@ public class FutureArrayList {
         }
         System.out.println(list.get(1).get());
         fixedThreadPool.shutdown();
+
+        // Cached Thread Pool
         ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
         List<Future<String>> list2 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
