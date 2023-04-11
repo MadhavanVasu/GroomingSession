@@ -2,6 +2,7 @@ package com.mv.week3.questions;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 
 class CustomFixedThreadPool {
@@ -13,6 +14,7 @@ class CustomFixedThreadPool {
     class WorkerThread extends Thread {
         @Override
         public void run() {
+            // Will execute the submitted tasks until shutdown() is called.
             while (isRunning || !taskQueue.isEmpty()) {
                 try {
                     Runnable task = taskQueue.take();
@@ -39,10 +41,12 @@ class CustomFixedThreadPool {
     }
 
     public void submit(Runnable task) {
+        // Check if shutdown() was called on the thread pool
+        // If shutdown was called submission of new tasks should throw RejectionExecutionException.
+        // Else task will be submitted
         if (isRunning) {
             taskQueue.add(task);
-        }
-        else
+        } else
             throw new RejectedExecutionException();
     }
 }
@@ -77,5 +81,6 @@ public class CustomThreadPool {
         fixedThreadPool.submit(new Task(6));
     }
 
-
 }
+
+
