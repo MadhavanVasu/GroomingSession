@@ -3,8 +3,6 @@ package com.mv.week3.questions;
 public class JoinVsYield {
 
     static class Task implements Runnable{
-
-
         @Override
         public void run() {
             try {
