@@ -31,6 +31,7 @@ public class JoinVsYield {
         t2.start();
         t1.join();
         t2.join();
+        
         // join() method permits one thread to wait until the other thread to finish its execution.
         Thread t3 = new Thread(new Task());
         Thread t4 = new Thread(new Task());
