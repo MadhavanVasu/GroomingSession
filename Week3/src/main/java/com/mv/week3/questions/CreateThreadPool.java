@@ -41,6 +41,7 @@ public class CreateThreadPool {
         }
         System.out.println("In main");
         service.shutdown();
+        service.submit(new Task());
 
     }
 
