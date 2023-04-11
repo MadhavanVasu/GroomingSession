@@ -3,6 +3,15 @@ package com.mv.week3.questions;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
+// CyclicBarrier is a synchronization aid that allows a set of threads to wait for each other to reach a common execution point.
+// It works by creating a barrier that is used to block all participating threads
+// until they all reach the barrier point.
+// Once all threads have reached the barrier, the barrier is broken, and all threads are allowed to proceed.
+// CyclicBarrier takes a number of threads to wait for,
+// and a barrier action that is executed once all threads have reached the barrier.
+// When a thread reaches the barrier, it blocks until all other threads have also reached the barrier.
+// Once all threads have reached the barrier, the barrier action is executed, and the threads are released.
+// Unlike countdown latch, cyclic barrier can be reused.
 
 public class CyclicBarrierDemo {
 

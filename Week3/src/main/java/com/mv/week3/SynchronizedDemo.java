@@ -3,13 +3,18 @@ package com.mv.week3;
 
 class ExampleClass {
     private int count = 0;
+    private Object obj = new Object();
 
-    public synchronized void increment() {
+    public synchronized void increment() throws InterruptedException {
         count++;
         System.out.println(Thread.currentThread().getName() + " incremented count to " + count);
+        Thread.sleep(5000);
 
     }
 
+//    public void printCount() {
+//        System.out.println(Thread.currentThread().getName() + " count is " + count);
+//    }
     public void printCount() {
         System.out.println(Thread.currentThread().getName() + " count is " + count);
     }
@@ -21,7 +26,11 @@ public class SynchronizedDemo {
 
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
-                example.increment();
+                try {
+                    example.increment();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
@@ -34,7 +43,7 @@ public class SynchronizedDemo {
             for (int i = 0; i < 5; i++) {
                 example.printCount();
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
