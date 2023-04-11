@@ -1,6 +1,7 @@
 package com.mv.week1.part2;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ExceptionDemo {
 

@@ -1,10 +1,6 @@
 package com.mv.week3.questions;
 
 
-import java.util.Scanner;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 class PrintNumbersUsingThreads {
 
     private static final int N = 20;
