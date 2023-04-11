@@ -2,7 +2,6 @@ package com.mv.week3.questions;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 
 class CustomFixedThreadPool {
@@ -78,6 +77,7 @@ public class CustomThreadPool {
         for (int i = 1; i <= 5; i++)
             fixedThreadPool.submit(new Task(i));
         fixedThreadPool.shutdown();
+        // This statement will cause RejectedExecutionException.
         fixedThreadPool.submit(new Task(6));
     }
 
