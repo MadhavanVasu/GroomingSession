@@ -13,7 +13,6 @@ class CounterTask implements Runnable {
         this.threadId = threadId;
     }
 
-
     public void incrementCount() throws InterruptedException {
         while (true) {
             synchronized (CounterTask.class) {
@@ -31,7 +30,6 @@ class CounterTask implements Runnable {
         }
 
     }
-
 
     @Override
     public void run() {

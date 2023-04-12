@@ -15,6 +15,11 @@ public class StreamsDemo {
 
     public static void main(String[] args) {
 
+        // In Java, a Stream is a powerful and expressive API introduced in Java 8
+        // that provides a functional programming approach for processing collections of data.
+        // It allows for efficient and concise manipulation of data in a declarative manner,
+        // without the need for explicit iteration or loops.
+
         // Streams in Java are immutable, which means that once a stream is created,
         // its elements and their order cannot be changed.
         // Any operation performed on a stream creates a new stream, leaving the original stream unchanged.
@@ -90,15 +95,46 @@ public class StreamsDemo {
                 .collect(Collectors.toList());
         System.out.println(flattenedNumbers);
 
-        //
+        // distinct()
+        // The distinct() method returns a new stream consisting of distinct elements
+        // based on their natural order or the order imposed by a provided comparator.
         System.out.println("-------------------------------------------");
         System.out.println("distinct() :");
-        List<Integer> duplicateNumbers = Arrays.asList(7,7,3,2,1,3,4,2,1,5);
+        List<Integer> duplicateNumbers = Arrays.asList(7, 7, 3, 2, 1, 3, 4, 2, 1, 5);
         List<Integer> distinctNumbers = duplicateNumbers.stream()
                 .distinct() // Filter out duplicate elements
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList());
         System.out.println(distinctNumbers);
+
+        // sorted()
+        // The sorted() method is used to sort the elements of a stream based on their natural order
+        // or using a custom comparator. It returns a new stream that contains the sorted elements.
+        System.out.println("-------------------------------------------");
+        System.out.println("sorted() :");
+        numbers = Arrays.asList(5, 2, 8, 1, 6, 3, 7, 4);
+        // Sort elements in natural order
+        List<Integer> sortedNumbers1 = numbers.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(sortedNumbers1);
+
+        // limit()
+        // The limit() method is used to truncate a stream to a specified size, i.e.,
+        // it returns a new stream that contains at most the specified number of elements.
+        System.out.println("-------------------------------------------");
+        System.out.println("limit() :");
+        numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> limitedNumbers = numbers.stream().limit(3).collect(Collectors.toList());
+        System.out.println(numbers);
+
+        // skip()
+
+        // limit() & skip() can be used for pagination.
+        // If we are working with a large collection of data that needs to be displayed
+        // or processed in smaller chunks, we can use limit() and skip() to implement pagination.
+        // For example, we can use limit() to restrict the number of elements to be displayed per page,
+        // and skip() to skip the elements from previous pages.
 
         // Terminal operations
 
