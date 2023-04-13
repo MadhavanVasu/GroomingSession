@@ -1,9 +1,6 @@
 package com.mv.week4;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -129,6 +126,12 @@ public class StreamsDemo {
         System.out.println(numbers);
 
         // skip()
+        // Skips the specified numbers of elements in the stream from the beginning.
+        System.out.println("-------------------------------------------");
+        System.out.println("skip() :");
+        numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> skippedNumbers = numbers.stream().skip(2).collect(Collectors.toList());
+        System.out.println(skippedNumbers);
 
         // limit() & skip() can be used for pagination.
         // If we are working with a large collection of data that needs to be displayed
@@ -142,21 +145,31 @@ public class StreamsDemo {
         // This terminal operation applies the given action to each element of the stream.
         // The action is a functional interface that takes an element of the stream
         // and performs a side-effect.
+        System.out.println("-------------------------------------------");
+        System.out.println("foEach() & forEachOrdered() :");
         names = Arrays.asList("John", "Alice", "Bob", "Charlie");
         // Print each name in the list
         names.stream().forEach(System.out::println);
+        // Print each element of the list in order using forEachOrdered()
+        names.stream().forEachOrdered(System.out::println);
+
 
         // reduce(BinaryOperator<T> accumulator)
         // This terminal operation applies the given binary operator to the elements of the stream
         // and returns an Optional that represents the reduced result.
         // The binary operator is a functional interface that takes two elements and returns a single element.
+        System.out.println("-------------------------------------------");
+        System.out.println("reduce() :");
         Integer sum = numbers.stream().reduce((a, b) -> a + b).get();
         System.out.println(sum);
+
 
         // collect(Collector<T, A, R> collector)
         // This terminal operation collects the elements of the stream into a new data structure
         // or performs some other mutable reduction operation using the specified collector.
         // The collector is a complex functional interface that defines how the elements of the stream should be collected.
+        System.out.println("-------------------------------------------");
+        System.out.println("collect() :");
         perfectSquareStream = numbers.stream().map((a) -> a * a);
         List<Integer> perfectSquareList = perfectSquareStream.collect(Collectors.toList());
         // IllegalStateException: stream has already been operated upon or closed
@@ -167,6 +180,101 @@ public class StreamsDemo {
         String namesString = names.stream()
                 .collect(Collectors.joining(", "));
         System.out.println(namesString); // Output: John, Alice, Bob, Charlie
+
+        // min()
+        System.out.println("-------------------------------------------");
+        System.out.println("min() :");
+        int min = numbers.stream().min((a, b) -> a - b).orElse(0);
+        System.out.println(min);
+
+        // max()
+        System.out.println("-------------------------------------------");
+        System.out.println("max() :");
+        int max = numbers.stream().max(Comparator.comparingInt(Integer::intValue)).orElse(0);
+        System.out.println(max);
+
+        // findAny()
+        //  This method is used to find any element in a stream.
+        //  It returns an Optional<T> where T is the type of elements in the stream.
+        //  If the stream is empty, the Optional will be empty.
+        //  Note that the element returned by findAny() is non-deterministic (random)
+        //  and may vary between invocations of the method.
+        System.out.println("-------------------------------------------");
+        System.out.println("findAny() :");
+        numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> any = numbers.stream().findAny();
+        System.out.println(any.orElse(null));
+
+        // findFirst()
+        // This method is used to find the first element in a stream.
+        // It returns an Optional<T> where T is the type of elements in the stream.
+        // If the stream is empty, the Optional will be empty.
+        System.out.println("-------------------------------------------");
+        System.out.println("findFirst() :");
+        numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> first = numbers.stream().findFirst();
+        System.out.println(first.orElse(null));
+
+        // anyMatch()
+        // This method is used to check if any element in a stream matches a given predicate.
+        // It returns a boolean value (true if any element matches, false otherwise).
+        System.out.println("-------------------------------------------");
+        System.out.println("anyMatch() :");
+        numbers = Arrays.asList(1, 2, 3, 4, 5);
+        boolean anyMatch = numbers.stream().anyMatch(n -> n > 3);
+        System.out.println(anyMatch);
+
+        // allMatch()
+        // This method is used to check if all elements in a stream match a given predicate.
+        // It returns a boolean value (true if all elements match, false otherwise).
+        System.out.println("-------------------------------------------");
+        System.out.println("allMatch() :");
+        numbers = Arrays.asList(1, 2, 3, 4, 5);
+        boolean allMatch = numbers.stream().allMatch(n -> n > 0);
+        System.out.println(allMatch);
+
+        // Sort map based on values
+        System.out.println("-------------------------------------------");
+        System.out.println("Map sorted based on values :");
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Alice", 30);
+        map.put("Bob", 25);
+        map.put("Charlie", 40);
+        map.put("Dave", 35);
+        map.put("Eve", 20);
+        // Three ways of comparing map by value
+        // 1. (c1,c2) -> c1.getValue().compareTo(c2.getValue())
+        // 2. Comparator.comparing(Map.Entry::getValue)
+        // 3. Map.Entry.comparingByValue()
+
+        // Method 1
+        Map<String, Integer> sortedMap = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,
+                Map.Entry::getValue,
+                (v1, v2) -> v1,
+                LinkedHashMap::new));
+        // Map.Entry::getKey and Map.Entry::getValue:
+        // These are method references that specify how to extract the keys and values from the Map.Entry objects.
+        // Map.Entry::getKey refers to the getKey() method of Map.Entry, which returns the key,
+        // and Map.Entry::getValue refers to the getValue() method of Map.Entry, which returns the value.
+        //
+        //(v1, v2) -> v1:
+        // This is a merge function that specifies how to resolve conflicts when multiple entries in the
+        // original map have the same key in the sorted map.
+        // In this case, it simply selects the first value encountered and discards the second value.
+        // The parameters v1 and v2 represent the values of the conflicting entries,
+        // and the lambda expression (v1, v2) -> v1 returns v1, effectively choosing the first value as the merged value.
+        //
+        //LinkedHashMap::new:
+        // This specifies the type of Map to be created, which is a LinkedHashMap in this case.
+        // LinkedHashMap is used to preserve the order of elements based on their insertion order,
+        // which ensures that the sorted map is returned with the entries sorted by values.
+        System.out.println(sortedMap);
+
+        // Method 2
+        Map<String, Integer> sortedMap2 = new LinkedHashMap<>();
+        map.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEachOrdered((entry) ->
+                sortedMap2.put(entry.getKey(), entry.getValue()));
+        System.out.println(sortedMap2);
 
 
     }

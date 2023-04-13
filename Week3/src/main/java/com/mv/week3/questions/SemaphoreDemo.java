@@ -56,6 +56,7 @@ public class SemaphoreDemo {
             threads[i] = thread;
         }
         for (int i = 0; i < 5; i++) threads[i].join();
+
         System.out.println("Method 2");
         Semaphore semaphore = new Semaphore(3);
         for (int i = 0; i < 5; i++) {

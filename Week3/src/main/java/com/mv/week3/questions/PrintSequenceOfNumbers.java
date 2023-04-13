@@ -1,6 +1,5 @@
 package com.mv.week3.questions;
 
-
 class CounterTask implements Runnable {
 
     static Integer count = 1;
