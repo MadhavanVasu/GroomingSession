@@ -1,9 +1,6 @@
 package com.mv.week4;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -30,7 +27,6 @@ public class CollectorsDemo {
         Map<String, Integer> map2 = Arrays.asList("Hello", "World").stream().collect(Collectors.toMap(s -> s, s -> s.length()));
         System.out.println(map);
         System.out.println(map2);
-
     }
 
 }
