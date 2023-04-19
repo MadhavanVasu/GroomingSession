@@ -1,4 +1,4 @@
-package com.mv.week5.designpatterns.factory.abstractfactory;
+package com.mv.week5.designpatterns.abstractfactory;
 
 
 // The abstract factory interface declares a set of methods that return different abstract products.

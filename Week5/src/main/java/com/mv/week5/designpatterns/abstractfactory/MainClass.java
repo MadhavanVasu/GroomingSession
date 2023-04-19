@@ -1,12 +1,10 @@
-package com.mv.week5.designpatterns.factory.abstractfactory;
+package com.mv.week5.designpatterns.abstractfactory;
 
 import java.util.Scanner;
 
 enum FurnitureType {
-
     PLASTIC,
     WOODEN
-
 }
 
 // Abstract Factory is a creational design pattern that lets you produce families of related objects
@@ -19,7 +17,6 @@ enum FurnitureType {
 // the client system from the actual implementation classes through the abstract types and factories.
 
 // https://refactoring.guru/design-patterns/abstract-factory
-
 public class MainClass {
 
     public static FurnitureFactory factory;

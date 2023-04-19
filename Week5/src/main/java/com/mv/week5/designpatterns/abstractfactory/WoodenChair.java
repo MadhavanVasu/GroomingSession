@@ -1,4 +1,4 @@
-package com.mv.week5.designpatterns.factory.abstractfactory;
+package com.mv.week5.designpatterns.abstractfactory;
 
 public class WoodenChair implements Chair {
     @Override

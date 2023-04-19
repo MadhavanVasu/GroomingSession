@@ -1,4 +1,4 @@
-package com.mv.week5.designpatterns.factory.abstractfactory;
+package com.mv.week5.designpatterns.abstractfactory;
 
 // Concrete factories produce a family of products that belong to a single variant.
 // The factory guarantees that the resulting products are compatible.
