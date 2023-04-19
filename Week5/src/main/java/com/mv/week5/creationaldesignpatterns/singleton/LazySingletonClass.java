@@ -3,7 +3,7 @@ package com.mv.week5.creationaldesignpatterns.singleton;
 
 import java.io.Serializable;
 
-public class LazySingletonClass implements Serializable {
+public class LazySingletonClass implements Serializable, Cloneable {
 
     private static LazySingletonClass obj = null;
     private String name;
@@ -30,6 +30,11 @@ public class LazySingletonClass implements Serializable {
             obj = new LazySingletonClass(s);
         }
         return obj;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 }
