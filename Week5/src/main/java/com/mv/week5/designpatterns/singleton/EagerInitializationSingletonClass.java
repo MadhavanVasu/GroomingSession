@@ -1,4 +1,4 @@
-package com.mv.week5;
+package com.mv.week5.designpatterns.singleton;
 
 public class EagerInitializationSingletonClass {
 
