@@ -43,8 +43,6 @@ class Rectangle implements Shape {
 // We can keep Factory class Singleton, or we can keep the method that returns the subclass as static.
 // Notice that based on the input parameter, different subclass is created and returned.
 // getShape() is the factory method.
-
-
 class ShapeFactory {
 
     private ShapeFactory() {
