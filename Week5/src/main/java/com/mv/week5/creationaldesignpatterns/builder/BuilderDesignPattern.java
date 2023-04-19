@@ -80,6 +80,24 @@ class Student {
                 '}';
     }
 }
+// Builder is a creational design pattern that lets you construct complex objects step by step.
+// The pattern allows you to produce different types
+// and representations of an object using the same construction code.
+
+// In most cases, one uses a builder pattern because one wants to keep the object — once created — immutable.
+// That is, create it, and never change it again.
+// Immutable objects are useful for multiple reasons (beyond the scope of this answer),
+// but mostly so that you know you can keep using them without the inner data changing unexpectedly.
+//Immutable objects do not, by definition, support changes, and the associated class
+// does not have setter methods.
+
+// A builder pattern ensures we create a valid object to work with.
+//Let's use a Person class as an example.
+// If we opt for the no-args constructor approach it means users of those objects must
+// check the validity of the object; has the name field been set? Has the DOB field been set?
+// The list goes on.
+//So instead we use a PersonBuilder that won't allow a Person object to be
+// constructed without all the required attributes.
 
 // Most of the time, the builder pattern is used to build an immutable object.
 // The builder builds an object, and you want the built object to be mutable, then it can have setters.
