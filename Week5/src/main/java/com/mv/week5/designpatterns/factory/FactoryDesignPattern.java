@@ -43,6 +43,8 @@ class Rectangle implements Shape {
 // We can keep Factory class Singleton, or we can keep the method that returns the subclass as static.
 // Notice that based on the input parameter, different subclass is created and returned.
 // getShape() is the factory method.
+
+
 class ShapeFactory {
 
     private ShapeFactory() {
@@ -68,6 +70,9 @@ public class FactoryDesignPattern {
     // and based on input, we need to return one of the subclass.
     // This pattern takes out the responsibility of the instantiation of a class from the client program
     // to the factory class.
+    // Factory Method pattern is a simplified version of Abstract Factory pattern.
+    // Factory Method pattern is responsible for creating products that belong to one family,
+    // while Abstract Factory pattern deals with multiple families of products.
     public static void main(String[] args) {
         Shape square = ShapeFactory.getShape(Shapes.SQUARE);
         System.out.println(square.area());
