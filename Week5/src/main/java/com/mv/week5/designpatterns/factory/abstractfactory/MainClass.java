@@ -14,6 +14,10 @@ enum FurnitureType {
 // The Abstract Factory Pattern consists of an
 // AbstractFactory, ConcreteFactory, AbstractProduct, ConcreteProduct and Client.
 
+// The methods of an Abstract Factory are implemented as Factory Methods.
+// Both the Abstract Factory Pattern and the Factory Method Pattern decouples
+// the client system from the actual implementation classes through the abstract types and factories.
+
 // https://refactoring.guru/design-patterns/abstract-factory
 
 public class MainClass {
