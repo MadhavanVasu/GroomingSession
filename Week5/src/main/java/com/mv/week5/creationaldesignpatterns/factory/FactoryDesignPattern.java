@@ -1,4 +1,4 @@
-package com.mv.week5.designpatterns.factory;
+package com.mv.week5.creationaldesignpatterns.factory;
 
 import java.util.Scanner;
 
