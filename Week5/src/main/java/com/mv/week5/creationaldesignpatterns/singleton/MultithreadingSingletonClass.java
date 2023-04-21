@@ -28,9 +28,10 @@ public class MultithreadingSingletonClass {
 
     public static MultithreadingSingletonClass getInstanceSynchronizedBlock() {
         // Here we do double-checking
+        // First if to avoid performance issue
         if (obj == null) {
             synchronized (MultithreadingSingletonClass.class) {
-                if (obj == null)
+                if (obj == null) // To avoid duplicate object creation
                     obj = new MultithreadingSingletonClass(Thread.currentThread().getName());
             }
         }

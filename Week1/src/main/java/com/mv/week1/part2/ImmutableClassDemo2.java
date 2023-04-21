@@ -58,6 +58,11 @@ public class ImmutableClassDemo2 {
         System.out.println(list2);
         System.out.println(obj.getStudents());
 
+        // Note that final only forbids us from changing the reference the variable holds,
+        // it doesn't protect us from changing the internal state of the object it refers to
+        // by using its public API:
+        final List<String> strings = new ArrayList<>();
+        strings.add("baeldung");
 
 
     }
