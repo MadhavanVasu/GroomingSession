@@ -8,12 +8,13 @@ public class PrototypeRegistry {
     private static Map<String, Shape> shapeRegistry = new HashMap<>();
 
     static {
+        // Upcasting
         shapeRegistry.put("RECTANGLE", new Rectangle());
         shapeRegistry.put("CIRCLE", new Circle());
     }
 
-    public static Shape getShape(String choice) {
-        return shapeRegistry.getOrDefault(choice, null);
+    public static Shape getShape(String choice) throws CloneNotSupportedException {
+        return shapeRegistry.getOrDefault(choice, null).clone();
     }
 
 
