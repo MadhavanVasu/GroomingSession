@@ -246,7 +246,7 @@ public class StreamsDemo {
         // 1. (c1,c2) -> c1.getValue().compareTo(c2.getValue())
         // 2. Comparator.comparing(Map.Entry::getValue)
         // 3. Map.Entry.comparingByValue()
-
+        // groupingBy()
         // Method 1
         Map<String, Integer> sortedMap = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,
                 Map.Entry::getValue,

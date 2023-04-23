@@ -24,7 +24,6 @@ public class MainClass {
     public static Table table;
 
     public static void main(String[] args) {
-
         String choice;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter your choice of furniture (PLASTIC or WOODEN) : ");
@@ -33,17 +32,14 @@ public class MainClass {
             factory = new PlasticFurnitureFactory();
         else if (choice.toUpperCase().equals(FurnitureType.WOODEN.toString()))
             factory = new WoodenFurnitureFactory();
-
         try {
             chair = factory.getChair();
             table = factory.getTable();
-
             chair.sit();
             table.placeItems();
         } catch (Exception e) {
             System.out.println("Invalid choice");
         }
-
     }
 
 }

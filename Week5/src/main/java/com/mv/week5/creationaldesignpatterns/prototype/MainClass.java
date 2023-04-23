@@ -5,6 +5,7 @@ public class MainClass {
     // Prototype registry : This is used as registry service to have all prototypes accessible
     // using simple string parameters.
     // Client : Client will be responsible for using registry service to access prototype instances.
+
     public static void main(String[] args) throws CloneNotSupportedException {
 
         // Downcasting
