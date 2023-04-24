@@ -101,6 +101,8 @@ class Student {
 
 // Most of the time, the builder pattern is used to build an immutable object.
 // The builder builds an object, and you want the built object to be mutable, then it can have setters.
+
+// Example : Jwts.builder(), Lombok
 public class BuilderDesignPattern {
 
     public static void main(String[] args) {

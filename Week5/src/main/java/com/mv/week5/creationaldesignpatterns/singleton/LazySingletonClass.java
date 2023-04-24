@@ -26,6 +26,8 @@ public class LazySingletonClass implements Serializable, Cloneable {
         // Not thread safe
         // Because initially two threads can enter inside the if block at the same time
         // and create 2 different instances which breaks the Singleton property.
+
+        // Singleton Example : Logging, DB Connection
         if (obj == null) {
             obj = new LazySingletonClass(s);
         }

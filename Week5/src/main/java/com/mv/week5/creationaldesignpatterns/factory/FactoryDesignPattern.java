@@ -71,6 +71,8 @@ public class FactoryDesignPattern {
     // Factory Method pattern is a simplified version of Abstract Factory pattern.
     // Factory Method pattern is responsible for creating products that belong to one family,
     // while Abstract Factory pattern deals with multiple families of products.
+
+    // Example : Spring Dependency Injection (Bean)
     public static void main(String[] args) {
         Shape square = ShapeFactory.getShape(Shapes.SQUARE);
         System.out.println(square.area());
