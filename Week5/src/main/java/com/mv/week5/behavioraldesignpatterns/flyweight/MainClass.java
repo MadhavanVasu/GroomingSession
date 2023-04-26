@@ -8,13 +8,12 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        Forest forest = new Forest();
-        forest.plantTree(1, 2, "Redwood Tree", Color.RED);
-        forest.plantTree(2, 3, "Banyan Tree", Color.BROWN);
-        forest.plantTree(3, 4, "Bamboo Tree", Color.GREEN);
-        forest.plantTree(4, 5, "Redwood Tree", Color.RED);
+        DrawingApp drawingApp = new DrawingApp();
+        drawingApp.drawTree(1, 2, "Redwood Tree", Color.RED);
+        drawingApp.drawTree(2, 3, "Banyan Tree", Color.BROWN);
+        drawingApp.drawTree(3, 4, "Bamboo Tree", Color.GREEN);
+        drawingApp.drawTree(4, 5, "Redwood Tree", Color.RED);
 
-        forest.draw();
 
     }
 
