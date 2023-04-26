@@ -30,6 +30,9 @@ public class MainClass {
         // Same like Collections.sort()
         // Initially it can sort only in natural order
         // We can pass the algorithm in runtime by passing object of type Comparator
+        // We can use any algorithm of type Comparator interchangeably
+        // Strategy is a behavioral design pattern that lets you define a family of algorithms,
+        // put each of them into a separate class, and make their objects interchangeable.
         rocky.setFlyingType(new CanFly());
         rocky.tryToFly();
 
