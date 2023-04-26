@@ -8,6 +8,7 @@ public class Tree {
     // Here it is name and color of the tree
     // If we need to create a new Tree Object everytime so that we can store it in some Collections,
     // we can move the intrinsic field to a different class (TreeType) and factory should return TreeType.
+    // So now every Tree will share the same TreeType (based on parameters).
     private final String name;
     private final Color color;
 
