@@ -20,6 +20,11 @@ public class MainClass {
         // A handler can also decide not to pass the request further down the chain
         // and effectively stop any further processing.
 
+        // Each check we can transform to a stand-alone object.
+        // Having multiple if-else check would become cumbersome.
+        // If we want to use condition in multiple place, then also it would result in code duplicacy.
+        // So it is better to convert those checks to objects.
+
         Chain additionOperation = new AdditionOperation();
         Chain subtractionOperation = new SubtractionOperation();
         Chain multiplicationOperation = new MultiplicationOperation();
