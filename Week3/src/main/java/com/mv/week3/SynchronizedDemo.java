@@ -8,7 +8,7 @@ class ExampleClass {
     public synchronized void increment() throws InterruptedException {
         count++;
         System.out.println(Thread.currentThread().getName() + " incremented count to " + count);
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
 
     }
 
@@ -16,7 +16,7 @@ class ExampleClass {
 //        System.out.println(Thread.currentThread().getName() + " count is " + count);
 //    }
     public void printCount() {
-        System.out.println(Thread.currentThread().getName() + " count is " + count);
+        System.out.println(Thread.currentThread().getName() + " count is " + ++count);
     }
 }
 
@@ -25,7 +25,7 @@ public class SynchronizedDemo {
         ExampleClass example = new ExampleClass();
 
         Thread t1 = new Thread(() -> {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 try {
                     example.increment();
                 } catch (InterruptedException e) {
@@ -40,7 +40,7 @@ public class SynchronizedDemo {
         });
 
         Thread t2 = new Thread(() -> {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 example.printCount();
                 try {
                     Thread.sleep(1000);

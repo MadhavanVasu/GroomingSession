@@ -1,4 +1,4 @@
-package com.mv.week5.behavioraldesignpatterns.flyweight;
+package com.mv.week5.structuraldesignpatterns.flyweight;
 
 
 public class DrawingApp {
