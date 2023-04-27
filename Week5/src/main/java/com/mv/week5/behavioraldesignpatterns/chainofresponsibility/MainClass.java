@@ -25,6 +25,8 @@ public class MainClass {
         // If we want to use condition in multiple place, then also it would result in code duplicacy.
         // So it is better to convert those checks to objects.
 
+        // Try catch and Class loading
+
         Chain additionOperation = new AdditionOperation();
         Chain subtractionOperation = new SubtractionOperation();
         Chain multiplicationOperation = new MultiplicationOperation();
