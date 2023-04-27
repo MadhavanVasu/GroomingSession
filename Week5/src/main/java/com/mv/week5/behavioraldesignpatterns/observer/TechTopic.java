@@ -13,6 +13,12 @@ public class TechTopic implements Subject {
     // Observers can register themselves to receive notification when the state changes.
     private String message;
     private boolean isChanged;
+
+    // The reason why we use a private Object for lock here is that if we use this as monitor
+    // any other thread using our subject as lock for some synchronized block
+    // might unnecessarily block our thread.
+    // Like for example if main uses subject as monitor and another thread we spawn from main trying
+    // to register observer will have unnecessarily wait till main leave synchronized block.
     private final Object lock;
 
     public TechTopic() {
