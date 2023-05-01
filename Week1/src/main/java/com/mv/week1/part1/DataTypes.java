@@ -66,6 +66,9 @@ public class DataTypes extends Object {
         System.out.println(obj.s);
 
         // Wrapper Class
+        Integer a;
+
+
 
 
 

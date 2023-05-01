@@ -1,7 +1,6 @@
 package com.mv.week1.part1;
 
 //interface
-
 enum Days {
 
     // Enum constants are public static final constants
@@ -27,6 +26,9 @@ enum Days {
 
     int dayOfTheWeek;
 
+    protected int protectedField;
+    private int privateField;
+
     static {
         System.out.println("In static block");
     }
@@ -47,6 +49,15 @@ enum Days {
         return dayOfTheWeek;
     }
 
+    // Can also override toString().
+//    @Override
+//    public String toString() {
+//        return "Days{" +
+//                "dayOfTheWeek=" + dayOfTheWeek +
+//                ", protectedField=" + protectedField +
+//                ", privateField=" + privateField +
+//                '}';
+//    }
 }
 
 
@@ -57,11 +68,14 @@ public class EnumPrac {
         System.out.println("hi from Enum");
     }
 
-    public static void main(String[] args) throws ClassNotFoundException {
+
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         Class.forName("com.mv.week1.part1.Days");
         // Even if just a single constant is used all the constants are initialized as they are public final static
         Days day = Days.MONDAY;
+        Days.MONDAY.protectedField = 1;
         System.out.println(day);
+        System.out.println(day.protectedField);
 
 
 //        System.out.println(day.dummy());
@@ -84,7 +98,12 @@ public class EnumPrac {
         System.out.println(daysArr[2]);
         System.out.println(days.MONDAY.dayOfTheWeek);
         System.out.println(day.getDayOfTheWeek());
-
+        Class<Days> var = (Class<Days>) day.getClass();
+        System.out.println(var);
+        System.out.println(var.isEnum());
+//        var.newInstance();
+        final int constant;
+        constant = 0;
 
     }
 
