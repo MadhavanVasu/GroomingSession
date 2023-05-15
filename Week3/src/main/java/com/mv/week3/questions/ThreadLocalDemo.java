@@ -21,6 +21,8 @@ public class ThreadLocalDemo {
                 return 0;
             }
         };
+        // Alternative way
+        // private ThreadLocal<Integer> localVar = ThreadLocal.withInitial(() -> 0);
 
         public Task() {
             localVar.set(0);

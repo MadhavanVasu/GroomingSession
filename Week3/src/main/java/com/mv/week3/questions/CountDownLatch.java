@@ -24,6 +24,7 @@ public class CountDownLatch {
                 e.printStackTrace();
             } finally {
                 latch.countDown();
+                System.out.println("Executing other work...");
             }
         }
 

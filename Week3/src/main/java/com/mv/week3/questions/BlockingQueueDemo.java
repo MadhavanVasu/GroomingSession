@@ -3,6 +3,7 @@ package com.mv.week3.questions;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 class CustomBlockingQueue<T> {
 

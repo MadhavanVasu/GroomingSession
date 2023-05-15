@@ -11,6 +11,7 @@ public class ThreadInterruptDemo {
                 }
             } catch (InterruptedException e) {
                 System.out.println("Thread interrupted...");
+                System.out.println(Thread.currentThread().isInterrupted());
                 // When the interrupt is caught by the catch block, we handle the exception
                 // And then re-interrupt the thread using the interrupt() method.
                 // This is necessary because the InterruptedException clears the interrupt flag.

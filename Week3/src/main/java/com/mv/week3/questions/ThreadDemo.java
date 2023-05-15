@@ -51,7 +51,9 @@ public class ThreadDemo {
 
         A t1 = new A();
         B t2 = new B();
+        System.out.println(t1.getState());
         t1.start();
+        System.out.println(t1.getState());
         t2.start();
 
     }

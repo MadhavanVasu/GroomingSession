@@ -3,9 +3,19 @@ package com.mv.week3;
 
 class Counter {
     private int count;
+    private Object lock = new Object();
+
+    // When lock is acquired on a different object we can access other synchronized methods of the current object
+//    public void increment() throws InterruptedException {
+//        synchronized (lock) {
+//            count++;
+//            Thread.sleep(3000);
+//        }
+//    }
+
 
     public void increment() throws InterruptedException {
-        synchronized (this) {
+        synchronized (lock) {
             count++;
             Thread.sleep(3000);
         }
@@ -15,6 +25,7 @@ class Counter {
 //        return count;
 //    }
     public synchronized int getCount() {
+        System.out.println("getCount()");
         return count;
     }
 }
@@ -36,7 +47,11 @@ public class ObjectLevelLockDemo {
         });
 
         Thread t2 = new Thread(() -> System.out.println(obj.getCount()));
-
+//        synchronized (obj)
+//        {
+//
+//            // doing something
+//        }
         t1.start();
         t2.start();
     }

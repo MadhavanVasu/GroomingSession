@@ -17,6 +17,14 @@ public class StreamsDemo {
         // It allows for efficient and concise manipulation of data in a declarative manner,
         // without the need for explicit iteration or loops.
 
+        //  Streams provide a modern, functional, and concise way of manipulating collections of data.
+        //  Streams are based on a pipeline of intermediate and terminal operations.
+        // Intermediate operations transform the stream elements and create a new stream,
+        // while terminal operations produce a result or a side effect, such as
+        // printing the output to the console.
+        // Intermediate operations are lazy, meaning that they do not perform any processing
+        // until a terminal operation is invoked.
+
         // Streams in Java are immutable, which means that once a stream is created,
         // its elements and their order cannot be changed.
         // Any operation performed on a stream creates a new stream, leaving the original stream unchanged.
@@ -54,6 +62,7 @@ public class StreamsDemo {
         streamBuilder.forEach(System.out::println);
 
         // Intermediate operations
+        // The operations which return another stream as a result are called intermediate operations.
 
         // filter(Predicate<T> predicate)
         // This intermediate operation returns a new stream
@@ -79,7 +88,7 @@ public class StreamsDemo {
                 .collect(Collectors.toList());
         System.out.println(uppercaseNames);
 
-        // flatMap()
+        // flatMap(Function<T, Stream<R>>)
         // This intermediate operation flattens the stream of streams into a single stream.
         // It takes a function (Function<T, Stream<R>>) as a parameter,
         // which represents a mapping function that takes an element of the stream
@@ -89,6 +98,9 @@ public class StreamsDemo {
         // Flatten the nested list of numbers
         List<Integer> flattenedNumbers = nestedNumbers.stream()
                 .flatMap(List::stream)
+                .collect(Collectors.toList());
+        List<Integer> flattenedNumbers2 = nestedNumbers.stream()
+                .flatMap((list) -> list.stream())
                 .collect(Collectors.toList());
         System.out.println(flattenedNumbers);
 
@@ -115,7 +127,6 @@ public class StreamsDemo {
                 .sorted()
                 .collect(Collectors.toList());
         System.out.println(sortedNumbers1);
-
         // limit()
         // The limit() method is used to truncate a stream to a specified size, i.e.,
         // it returns a new stream that contains at most the specified number of elements.
@@ -140,6 +151,8 @@ public class StreamsDemo {
         // and skip() to skip the elements from previous pages.
 
         // Terminal operations
+        //  The operations which return non-stream values like primitive or object or collection
+        //  or return nothing are called terminal operations.
 
         // forEach(Consumer<T> action)
         // This terminal operation applies the given action to each element of the stream.
@@ -161,6 +174,9 @@ public class StreamsDemo {
         System.out.println("-------------------------------------------");
         System.out.println("reduce() :");
         Integer sum = numbers.stream().reduce((a, b) -> a + b).get();
+        int[] nums = {1, 2, 3, 4};
+//        Arrays.stream(nums).reduce((a, b) -> a * b).getAsInt();
+
         System.out.println(sum);
 
 
