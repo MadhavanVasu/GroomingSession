@@ -1,6 +1,8 @@
 package com.mv.cruddemo.controller;
 
 import com.mv.cruddemo.dto.AddMovieRequestDto;
+import com.mv.cruddemo.dto.MovieDetailUpdateRequestDto;
+import com.mv.cruddemo.exception.NoSuchMovieException;
 import com.mv.cruddemo.model.Movie;
 import com.mv.cruddemo.service.WatchlistService;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -19,7 +22,6 @@ public class WatchlistController {
     @Autowired
     WatchlistService watchlistService;
 
-    ModelMapper modelMapper = new ModelMapper();
 
     // GET
     @GetMapping("/getAll")
@@ -28,10 +30,11 @@ public class WatchlistController {
     }
 
     // POST
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<String> addMovieToWatchlist(@RequestBody AddMovieRequestDto requestDto) {
 
         // Add converter for uppercase conversion of specific fields
+        ModelMapper modelMapper = new ModelMapper();
         modelMapper.createTypeMap(AddMovieRequestDto.class, Movie.class)
                 .addMapping(AddMovieRequestDto::getName, Movie::setName)
                 .addMapping(AddMovieRequestDto::getGenre, Movie::setGenre)
@@ -46,7 +49,18 @@ public class WatchlistController {
     }
 
     // PUT
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateMovieDetails(@PathVariable("id") BigInteger movieId, @RequestBody MovieDetailUpdateRequestDto updateDto) throws NoSuchMovieException {
+
+        watchlistService.updateMovieDetail(movieId, updateDto);
+        return ResponseEntity.ok().body("Update successful");
+
+    }
 
     // DELETE
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteMovieFromWatchlist(@PathVariable("id") BigInteger movieId) throws NoSuchMovieException {
+        watchlistService.deleteMovie(movieId);
+        return ResponseEntity.ok().body("Delete successful");
+    }
 }
